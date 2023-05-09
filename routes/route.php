@@ -24,6 +24,12 @@ class Routes
       $this->home . "index.php" . "?page=customers" => function () {
         return include_once "pages/customers.php";
       },
+      $this->home . "index.php" . "?page=customer-insert" => function () {
+        return include_once "pages/insert-customer.php";
+      },
+      $this->home . "index.php" . "?page=customer-detail&id=" => function () {
+        return include_once "pages/detail-customer.php";
+      },
       $this->home . "index.php" . "?page=cards" => function () {
         return include_once "pages/cards.php";
       },
@@ -63,7 +69,7 @@ class Routes
       } else {
         @$this->directories[$this->url]();
       }
-    } catch (\Throwable $th) {
+    } catch (\Exception $th) {
       return include_once "pages/404.php";
     }
   }

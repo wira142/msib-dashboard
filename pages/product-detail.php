@@ -2,7 +2,6 @@
 include_once "Models/Product.php";
 $product = new Product();
 $data = $product->getProduct($_REQUEST['id']);
-
 ?>
 
 <div class="container">
