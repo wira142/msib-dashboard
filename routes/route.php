@@ -30,6 +30,12 @@ class Routes
       $this->home . "index.php" . "?page=products" => function () {
         return include_once "pages/products.php";
       },
+      $this->home . "index.php" . "?page=product-detail&id=" => function () {
+        return include_once "pages/product-detail.php";
+      },
+      $this->home . "index.php" . "?page=product-insert" => function () {
+        return include_once "pages/insert-product.php";
+      },
       $this->home . "index.php" . "?page=type-products" => function () {
         return include_once "pages/type_product.php";
       },
@@ -50,7 +56,13 @@ class Routes
   public function getFile()
   {
     try {
-      @$this->directories[$this->url]();
+      if (str_contains($this->url, 'id=')) {
+        $new_url = substr($this->url, 0, strpos($this->url, "&id=") + 4);
+        // $id = substr($this->url, strpos($this->url, "&id=") + 4, strpos($this->url, "&id="));
+        @$this->directories[$new_url]();
+      } else {
+        @$this->directories[$this->url]();
+      }
     } catch (\Throwable $th) {
       return include_once "pages/404.php";
     }
