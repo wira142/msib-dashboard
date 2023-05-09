@@ -21,6 +21,12 @@ class Routes
       $this->home . "index.php" . "?page=orders" => function () {
         return include_once "pages/orders.php";
       },
+      $this->home . "index.php" . "?page=order-insert" => function () {
+        return include_once "pages/insert-order.php";
+      },
+      $this->home . "index.php" . "?page=order-detail&id=" => function () {
+        return include_once "pages/order-detail.php";
+      },
       $this->home . "index.php" . "?page=customers" => function () {
         return include_once "pages/customers.php";
       },

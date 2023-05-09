@@ -2,8 +2,11 @@
   <h1 class="my-4">Order</h1>
   <div class="card mb-4">
     <div class="card-header">
-      <i class="fas fa-table me-1"></i>
-      Order
+      <div class="d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-table me-1"></i>
+          Orders</span>
+        <a href="index.php?page=order-insert" class="btn btn-success">Add New</a>
+      </div>
     </div>
     <div class="card-body">
       <table id="datatablesSimple">
@@ -31,7 +34,7 @@
           <?php
           include_once "Models/Order.php";
           $product = new Order();
-          $data = $product->getOrder();
+          $data = $product->getOrders();
           foreach ($data as $key => $item) {
           ?>
             <tr>
@@ -42,7 +45,7 @@
               <td><?= $item['nama'] ?></td>
               <td>
                 <div class="d-flex gap-2">
-                  <a href="#" class="btn btn-outline-info"><i class="fa-solid fa-user-pen"></i></a>
+                  <a href="index.php?page=order-detail&id=<?= $item['id'] ?>" class="btn btn-outline-info"><i class="fa-solid fa-user-pen"></i></a>
                   <a href="#" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></a>
                 </div>
               </td>
