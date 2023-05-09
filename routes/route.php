@@ -33,6 +33,12 @@ class Routes
       $this->home . "index.php" . "?page=cards" => function () {
         return include_once "pages/cards.php";
       },
+      $this->home . "index.php" . "?page=card-insert" => function () {
+        return include_once "pages/insert-card.php";
+      },
+      $this->home . "index.php" . "?page=card-detail&id=" => function () {
+        return include_once "pages/card-detail.php";
+      },
       $this->home . "index.php" . "?page=products" => function () {
         return include_once "pages/products.php";
       },

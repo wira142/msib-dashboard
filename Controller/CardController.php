@@ -1,22 +1,22 @@
 <?php
-include_once '../Models/Customer.php';
+include_once '../Models/Card.php';
 include_once '../Config/Connection.php';
 include_once '../routes/route.php';
 
 $kode = $_POST['kode'];
 $nama = $_POST['nama'];
-$diskon = $_POST['diskon'];
-$iuran = $_POST['iuran'];
+$diskon = doubleval($_POST['diskon']) / 100;
+$iuran = floatval($_POST['iuran']);
+$data = [$kode, $nama, $diskon, $iuran];
 
-$data = [$kode, $nama, $jk, $tmp_lahir, $tgl_lahir, $email, $kartu_id];
-$Customer = new Customer();
+$Card = new Card();
 switch ($_POST['tombol']) {
   case 'simpan':
-    $Customer->insert($data);
+    $Card->insert($data);
     break;
   case 'ubah':
     array_push($data, $_POST['id']);
-    $Customer->update($data);
+    $Card->update($data);
     break;
 
   default:
