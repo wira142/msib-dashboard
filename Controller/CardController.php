@@ -3,11 +3,13 @@ include_once '../Models/Card.php';
 include_once '../Config/Connection.php';
 include_once '../routes/route.php';
 
-$kode = $_POST['kode'];
-$nama = $_POST['nama'];
-$diskon = doubleval($_POST['diskon']) / 100;
-$iuran = floatval($_POST['iuran']);
-$data = [$kode, $nama, $diskon, $iuran];
+if ($_POST['tombol'] != 'hapus') {
+  $kode = $_POST['kode'];
+  $nama = $_POST['nama'];
+  $diskon = doubleval($_POST['diskon']) / 100;
+  $iuran = floatval($_POST['iuran']);
+  $data = [$kode, $nama, $diskon, $iuran];
+}
 
 $Card = new Card();
 switch ($_POST['tombol']) {
@@ -17,6 +19,11 @@ switch ($_POST['tombol']) {
   case 'ubah':
     array_push($data, $_POST['id']);
     $Card->update($data);
+    break;
+  case 'hapus':
+    unset($data);
+    $id[] = $_POST['id'];
+    $Card->delete($id);
     break;
 
   default:

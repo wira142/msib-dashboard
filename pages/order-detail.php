@@ -5,8 +5,8 @@ $data = $Order->getOrder($_REQUEST['id']);
 ?>
 
 <div class="container">
-  <h1>Tambah Kartu Baru</h1>
-  <form action="/msib-dashboard/Controller/OrderController.php" method="POST">
+  <h1>Data Kartu</h1>
+  <form>
     <input type="text" name="id" hidden value="<?= $data['id'] ?>">
     <div class="mb-3">
       <label for="tgl" class="form-label">Tanggal</label>
@@ -20,7 +20,6 @@ $data = $Order->getOrder($_REQUEST['id']);
       <label for="pelanggan_id" class="form-label">ID Pelanggan</label>
       <input type="number" step="1" min="0" class="form-control" value="<?= $data['pelanggan_id'] ?>" id="pelanggan_id" name="pelanggan_id" placeholder="50">
     </div>
-    <button type="submit" name="tombol" value="ubah" class="btn btn-success">Ubah</button>
     <br>
     <br>
   </form>

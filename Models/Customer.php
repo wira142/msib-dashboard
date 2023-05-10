@@ -41,6 +41,16 @@ class Customer
       echo $th->getMessage();
     }
   }
+  public function delete($data)
+  {
+    $sql = "DELETE FROM pelanggan WHERE id = ?";
+    try {
+      $ps = $this->con->prepare($sql);
+      $ps->execute($data);
+    } catch (Exception $th) {
+      echo $th->getMessage();
+    }
+  }
   public function update($data)
   {
     $sql = "UPDATE pelanggan SET kode = ?,nama_pelanggan = ?,jk=?,tmp_lahir =?,tgl_lahir=?,email=?,kartu_id=?WHERE id = ?";

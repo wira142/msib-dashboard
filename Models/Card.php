@@ -41,6 +41,16 @@ class Card
       echo $th->getMessage();
     }
   }
+  public function delete($data)
+  {
+    $sql = "DELETE FROM kartu WHERE id = ?";
+    try {
+      $ps = $this->con->prepare($sql);
+      $ps->execute($data);
+    } catch (Exception $th) {
+      echo $th->getMessage();
+    }
+  }
   public function update($data)
   {
     $sql = "UPDATE kartu SET kode = ?,nama = ?,diskon=?,iuran =? WHERE id = ?";

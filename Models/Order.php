@@ -41,6 +41,16 @@ class Order
       echo $th->getMessage();
     }
   }
+  public function delete($data)
+  {
+    $sql = "DELETE FROM pesanan WHERE id = ?";
+    try {
+      $ps = $this->con->prepare($sql);
+      $ps->execute($data);
+    } catch (Exception $th) {
+      echo $th->getMessage();
+    }
+  }
   public function update($data)
   {
     $sql = "UPDATE pesanan SET tanggal = ?,total = ?,pelanggan_id=? WHERE id = ?";

@@ -41,6 +41,16 @@ class Product
       echo $th->getMessage();
     }
   }
+  public function delete($data)
+  {
+    $sql = "DELETE FROM produk WHERE id = ?";
+    try {
+      $ps = $this->con->prepare($sql);
+      $ps->execute($data);
+    } catch (Exception $th) {
+      echo $th->getMessage();
+    }
+  }
   public function update($data)
   {
     $sql = "UPDATE produk SET kode = ?,nama = ?,harga_beli =?,harga_jual=?,stok=?,min_stok=?,jenis_produk_id=? WHERE id = ?";

@@ -27,6 +27,9 @@ class Routes
       $this->home . "index.php" . "?page=order-detail&id=" => function () {
         return include_once "pages/order-detail.php";
       },
+      $this->home . "index.php" . "?page=order-update&id=" => function () {
+        return include_once "pages/insert-order.php";
+      },
       $this->home . "index.php" . "?page=customers" => function () {
         return include_once "pages/customers.php";
       },
@@ -35,6 +38,9 @@ class Routes
       },
       $this->home . "index.php" . "?page=customer-detail&id=" => function () {
         return include_once "pages/detail-customer.php";
+      },
+      $this->home . "index.php" . "?page=customer-update&id=" => function () {
+        return include_once "pages/insert-customer.php";
       },
       $this->home . "index.php" . "?page=cards" => function () {
         return include_once "pages/cards.php";
@@ -45,11 +51,17 @@ class Routes
       $this->home . "index.php" . "?page=card-detail&id=" => function () {
         return include_once "pages/card-detail.php";
       },
+      $this->home . "index.php" . "?page=card-update&id=" => function () {
+        return include_once "pages/insert-card.php";
+      },
       $this->home . "index.php" . "?page=products" => function () {
         return include_once "pages/products.php";
       },
       $this->home . "index.php" . "?page=product-detail&id=" => function () {
         return include_once "pages/product-detail.php";
+      },
+      $this->home . "index.php" . "?page=product-update&id=" => function () {
+        return include_once "pages/insert-product.php";
       },
       $this->home . "index.php" . "?page=product-insert" => function () {
         return include_once "pages/insert-product.php";

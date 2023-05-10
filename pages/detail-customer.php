@@ -4,8 +4,8 @@ $customer = new Customer();
 $data = $customer->getCustomer($_REQUEST['id']);
 ?>
 <div class="container">
-  <h1>Ubah Pelanggan</h1>
-  <form action="/msib-dashboard/Controller/CustomerController.php" method="POST">
+  <h1>Data Pelanggan</h1>
+  <form>
     <input type="text" value="<?= $data['id'] ?>" name="id" hidden>
     <div class="mb-3">
       <label for="kode" class="form-label">Kode</label>
@@ -49,7 +49,6 @@ $data = $customer->getCustomer($_REQUEST['id']);
         <option value="2" <?= $data['kartu_id'] == "2" ? "selected" : '' ?>>Silver</option>
       </select>
     </div>
-    <button type="submit" name="tombol" value="ubah" class="btn btn-success">Simpan</button>
     <br>
     <br>
   </form>
