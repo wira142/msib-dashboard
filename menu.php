@@ -56,7 +56,7 @@
       </div>
       <div class="sb-sidenav-footer">
         <div class="small">Logged in as:</div>
-        Start Bootstrap
+        <?= $_SESSION['MEMBER']['username'] . " - " . $_SESSION['MEMBER']['role'] ?>
       </div>
     </nav>
   </div>

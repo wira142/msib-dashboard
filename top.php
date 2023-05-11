@@ -37,7 +37,11 @@
           <li>
             <hr class="dropdown-divider" />
           </li>
-          <li><a class="dropdown-item" href="#!">Logout</a></li>
+          <li>
+            <form action="/msib-dashboard/Controller/MemberController.php" method="POST">
+              <button type="submit" name="tombol" value="keluar" class="dropdown-item" onclick="return confirm('Anda Yakin Akan Keluar?')">Logout</button>
+            </form>
+          </li>
         </ul>
       </li>
     </ul>
