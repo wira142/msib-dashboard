@@ -5,7 +5,13 @@
       <div class="d-flex justify-content-between align-items-center">
         <span><i class="fas fa-table me-1"></i>
           Customers</span>
-        <a href="index.php?page=customer-insert" class="btn btn-success">Add New</a>
+        <?php
+        if ($_SESSION['MEMBER']['role'] == "admin") {
+        ?>
+          <a href="index.php?page=customer-insert" class="btn btn-success">Add New</a>
+        <?php
+        }
+        ?>
       </div>
     </div>
     <div class="card-body">
@@ -56,10 +62,16 @@
                 <div class="d-flex gap-2">
                   <a href="index.php?page=customer-detail&id=<?= $item['id'] ?>" class="btn btn-outline-info"><i class="fa-sharp fa-solid fa-memo-circle-info"></i></a>
                   <a href="index.php?page=customer-update&id=<?= $item['id'] ?>" class="btn btn-outline-info"><i class="fa-solid fa-user-pen"></i></a>
-                  <form action="/msib-dashboard/Controller/CustomerController.php" method="POST">
-                    <input type="hidden" name="id" value="<?= $item['id'] ?>">
-                    <button type="submit" name="tombol" value="hapus" class="btn btn-outline-danger" onclick="return confirm('Anda Yakin Data diHapus?')"><i class="fa-solid fa-trash"></i></button>
-                  </form>
+                  <?php
+                  if ($_SESSION['MEMBER']['role'] == "admin") {
+                  ?>
+                    <form action="/msib-dashboard/Controller/CustomerController.php" method="POST">
+                      <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                      <button type="submit" name="tombol" value="hapus" class="btn btn-outline-danger" onclick="return confirm('Anda Yakin Data diHapus?')"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                  <?php
+                  }
+                  ?>
                 </div>
               </td>
             </tr>

@@ -8,10 +8,6 @@
             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
             Dashboard
           </a>
-          <a class="nav-link" href="index.php?page=login">
-            <div class="sb-nav-link-icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></div>
-            Login
-          </a>
           <div class="sb-sidenav-menu-heading">Interface</div>
           <a class="nav-link" href="index.php?page=orders">
             Orders
@@ -34,10 +30,10 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                 Product Data
               </a>
-              <a class="nav-link" href="index.php?page=type-products">
+              <!-- <a class="nav-link" href="index.php?page=type-products">
                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                 Type Product Data
-              </a>
+              </a> -->
             </nav>
           </div>
 

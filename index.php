@@ -2,11 +2,8 @@
 session_start();
 if (!isset($_SESSION['MEMBER'])) {
   echo "<script>alert('Akun tidak memiliki akses!');window.location.href = '/msib-dashboard/FE/member_login.php';</script>";
-} else if ($_SESSION['MEMBER']['role'] != 'admin') {
-  unset($_SESSION['MEMBER']);
-  session_destroy();
-  echo "<script>alert('Akun tidak memiliki akses!');window.location.href = '/msib-dashboard/FE/member_login.php';</script>";
 }
+$sesi = $_SESSION['MEMBER'];
 include_once "top.php";
 include_once "menu.php";
 include_once "Config/Connection.php";
